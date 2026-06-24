@@ -26,5 +26,21 @@ spec:
           ports:
             - containerPort: 8080
 
+          env:
+            - name: DB_URL
+              value: jdbc:postgresql://postgres-service:5432/ecommerce
+
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: username
+
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: password
+
 #I want to specifically use rolling-update strategy for this yaml file. At a time
 # I want to update 50% of the pods
