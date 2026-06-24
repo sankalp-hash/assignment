@@ -28,18 +28,21 @@ spec:
 
           env:
             - name: DB_URL
-              value: jdbc:postgresql://postgres-service:5432/ecommerce
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: DB_URL
 
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
-                  name: postgres-secret
+                  name: db-secret
                   key: username
 
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: postgres-secret
+                  name: db-secret
                   key: password
 
 #I want to specifically use rolling-update strategy for this yaml file. At a time

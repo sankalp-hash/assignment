@@ -30,18 +30,21 @@ spec:
 
           env:
             - name: POSTGRES_DB
-              value: ecommerce
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: DB_NAME
 
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
-                  name: postgres-secret
+                  name: db-secret
                   key: username
 
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: postgres-secret
+                  name: db-secret
                   key: password
 
             - name: PGDATA
