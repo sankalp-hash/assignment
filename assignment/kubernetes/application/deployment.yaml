@@ -21,7 +21,7 @@ spec:
       containers:
         - name: assignment-app
 
-          image: us-central1-docker.pkg.dev/devops-assignment-500215/assignment-nagp/assignment-app:v1
+          image: us-central1-docker.pkg.dev/devops-assignment-500215/assignment-nagp/assignment-app:v2
 
           ports:
             - containerPort: 8080
