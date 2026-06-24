@@ -19,9 +19,9 @@ spec:
 
     spec:
       containers:
-        - name: inventory-app
+        - name: assignment-app
 
-          image: gcr.io/PROJECT_ID/assignment-nagp:latest
+          image: us-central1-docker.pkg.dev/devops-assignment-500215/assignment-nagp/inventory-app:v1
 
           ports:
             - containerPort: 8080
