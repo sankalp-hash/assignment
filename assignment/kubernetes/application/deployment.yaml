@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: assignment-nagp
+  namespace: assignment
+
+spec:
+  replicas: 4
+
+  selector:
+    matchLabels:
+      app: assignment-nagp
+
+  template:
+    metadata:
+      labels:
+        app: assignment-nagp
+
+    spec:
+      containers:
+        - name: inventory-app
+
+          image: gcr.io/PROJECT_ID/assignment-nagp:latest
+
+          ports:
+            - containerPort: 8080
+
+#I want to specifically use rolling-update strategy for this yaml file. At a time
+# I want to update 50% of the pods
