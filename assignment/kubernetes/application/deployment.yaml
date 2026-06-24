@@ -8,6 +8,12 @@ metadata:
 spec:
   replicas: 4
 
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 50%
+      maxSurge: 50%
+
   selector:
     matchLabels:
       app: assignment-nagp
@@ -25,6 +31,13 @@ spec:
 
           ports:
             - containerPort: 8080
+
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 20
+            periodSeconds: 10
 
           env:
             - name: DB_URL
