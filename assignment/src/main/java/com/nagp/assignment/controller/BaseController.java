@@ -16,4 +16,11 @@ public class BaseController {
     );
   }
 
+  @GetMapping("/demo")
+  public Map<String, String> demo() {
+    return Map.of(
+        "Hello", "Hello"
+    );
+  }
+
 }
