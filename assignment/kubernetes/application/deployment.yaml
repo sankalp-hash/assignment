@@ -66,10 +66,10 @@ spec:
                   key: password
           resources:
             requests:
-              cpu: "100m"
+              cpu: "25m"
               memory: "256Mi"
             limits:
-              cpu: "500m"
+              cpu: "100m"
               memory: "512Mi"
 #I want to specifically use rolling-update strategy for this yaml file. At a time
 # I want to update 50% of the pods
